@@ -1,0 +1,11 @@
+title: title
+email: email@example.com
+description: >-
+  This is for testing.
+baseurl: "/gh-pages-auto-deploy"
+url: ""
+twitter_username: jekyllrb
+github_username:  jekyll
+theme: minima
+plugins:
+  - jekyll-feed
