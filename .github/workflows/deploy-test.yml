@@ -16,7 +16,7 @@ jobs:
           key: ${{ runner.os }}-gems-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
-      - name: Run Jensen custom action
+      - name: Run Oliver custom action
         uses: ./
         with:
           provider: 'github'
