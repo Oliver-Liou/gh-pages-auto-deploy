@@ -10,6 +10,6 @@ COPY README.md /
 COPY script /script
 COPY providers /providers
 COPY entrypoint.sh /
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /entrypoint.sh && /script && /providers
 
 ENTRYPOINT ["/entrypoint.sh"]
