@@ -2,7 +2,7 @@
 
 # Generate a default secret key
 # To prevent archlinux-keyring from no secret key available to sign with
-pacman-key --init
+# pacman-key --init
 
 # Update packages database
 pacman -Syu --noconfirm

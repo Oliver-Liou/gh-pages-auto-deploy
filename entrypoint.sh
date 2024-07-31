@@ -151,7 +151,7 @@ if [[ -n "${SSH_PRIVATE_KEY}" ]]; then
 fi
 
 # Update cache key
-echo "Update cache key..."
-source ${SCRIPT_DIR}/script/update_cache_key.sh
+# echo "Update cache key..."
+# source ${SCRIPT_DIR}/script/update_cache_key.sh
 
 exit ${PROVIDER_EXIT_CODE}
