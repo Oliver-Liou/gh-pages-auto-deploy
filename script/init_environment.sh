@@ -2,7 +2,7 @@
 
 # Generate a default secret key
 # To prevent archlinux-keyring from no secret key available to sign with
-# pacman-key --init
+pacman-key --init
 
 # Update packages database
 pacman -Syu --noconfirm
@@ -15,14 +15,34 @@ if [[ -n "${SSH_PRIVATE_KEY}" ]]; then
   pacman -S --noconfirm openssh
 fi
 
-# Installing ruby libraries
-pacman -Sy --noconfirm ruby ruby-bundler
+# Install asdf-vm for tools' version management
+ASDF_HOME=${WORKING_DIR}/.asdf
 
-# Setting default ruby version
-cp /usr/bin/ruby-3.0.6-1 /usr/bin/ruby
+if [[ ! -f "${ASDF_HOME}/asdf.sh" ]]; then
+  git clone https://github.com/asdf-vm/asdf.git \
+      ${ASDF_HOME} --branch v0.14.0
+fi
+
+source ${ASDF_HOME}/asdf.sh
+
+# Fix invalid cache to asdf tools' installation
+ln -s ${ASDF_HOME} ${HOME}/.asdf
+
+# Install ruby environment
+pacman -S --noconfirm libyaml
+
+if ! asdf list ruby ${RUBY_VER} &>/dev/null; then
+  # Clean up ruby environments avoiding unnecessary cache
+  rm -rf ${ASDF_HOME}/installs/ruby
+  asdf plugin add ruby
+  asdf install ruby ${RUBY_VER}
+fi
+
+asdf global ruby ${RUBY_VER}
 
 # debug
 ruby -v && bundle version
 
 # This is a temporary workaround
+# See https://github.com/actions/checkout/issues/766
 git config --global --add safe.directory "*"

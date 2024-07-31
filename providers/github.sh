@@ -26,7 +26,7 @@ fi
 echo "Deploying to ${REPOSITORY} on branch ${BRANCH}"
 echo "Deploying to ${REMOTE_REPO}"
 
-git config --global init.defaultBranch main &&
+git config --global init.defaultBranch main && \
   git config --global http.postBuffer 1048576000 && \
   git init && \
   git config user.name "${ACTOR}" && \

@@ -8,7 +8,5 @@ function sha1sumx() {
   fi
 }
 
-sha1sumx $(find "${WORKING_DIR}" -iname '**Gemfile.lock')
+sha1sumx $(find "${WORKING_DIR}" -not -path "**/.asdf/**" -iname '**Gemfile.lock')
 sha1sumx ${HOME}/.tool-versions
-
-cat $CACHE_KEY_PATH

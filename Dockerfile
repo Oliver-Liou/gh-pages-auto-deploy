@@ -1,6 +1,6 @@
 FROM archlinux:base-devel
 
-LABEL version="1.0.0"
+LABEL version="1.0.3"
 LABEL repository="https://github.com/Oliver-Liou/gh-pages-auto-deploy"
 LABEL homepage="https://github.com/Oliver-Liou/gh-pages-auto-deploy"
 LABEL maintainer="Oliver Liou <yancheng199906@gmail.com>"
