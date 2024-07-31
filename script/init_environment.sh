@@ -15,7 +15,7 @@ fi
 pacman -S --noconfirm ruby ruby-bundler
 
 # Setting default ruby version
-cp /usr/bin/ruby /usr/bin/ruby
+cp /usr/bin/ruby-* /usr/bin/ruby
 
 # debug
 ruby -v && bundle version
