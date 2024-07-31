@@ -18,7 +18,7 @@ jobs:
           key: ${{ runner.os }}-cache-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/cache.key') }}
           restore-keys: |
             ${{ runner.os }}-cache-
-      - name: Run Jensen custom action
+      - name: Run Oliver custom action
         uses: ./
         with:
           provider: 'github'
